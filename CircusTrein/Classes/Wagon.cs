@@ -12,6 +12,7 @@ namespace CircusTrein.Classes
         public int Id { get; set; }
         public List<Animal> animals { get; private set; }
         public int CurrentPoints { get; private set; }
+        public int WagonSize = 10;
 
         public Wagon(int id)
         {
@@ -67,7 +68,7 @@ namespace CircusTrein.Classes
 
         private bool IsWagonPointsExceeded(Animal animal)
         {
-            if (animal.GetPoints() + CurrentPoints > 10)
+            if (animal.GetPoints() + CurrentPoints > WagonSize)
             {
                 return false;
 

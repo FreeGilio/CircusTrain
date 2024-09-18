@@ -10,25 +10,30 @@ namespace CircusTrein.Classes
     public class Train
     {
         public List<Wagon> wagons { get; set; }
+        private List<Animal> animalBuffer { get; set; }  
         public Train()
         {
             wagons = new List<Wagon>();
+            animalBuffer = new List<Animal>();  
         }
 
         public void AddAnimalToTrain(Animal animal)
-        {
-            try
-            {
-                AddWagonToTrain(animal);
-
-                Console.WriteLine($"{animal.Name} added to the train.");                     
-            }
-            catch (InvalidAnimalInputException ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-
+        {                   
+               animalBuffer.Add(animal);
+               Console.WriteLine($"{animal.Name} added to buffer.");                   
         }
+
+        public void SortAndOptimizeWagons()
+        {
+            var sortedAnimals = animalBuffer.OrderByDescending(a => a.GetPoints()).ToList();
+
+            foreach (var animal in sortedAnimals)
+            {
+                AddWagonToTrain(animal);  
+            }
+        }
+
+        //Input Interactive version
 
         /*public void AddAnimalToTrain()
         {
@@ -85,7 +90,6 @@ namespace CircusTrein.Classes
 
         public void AddWagonToTrain(Animal animal)
         {
-
             try
             {
                 bool added = false;
