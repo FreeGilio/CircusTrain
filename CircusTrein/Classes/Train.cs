@@ -15,8 +15,22 @@ namespace CircusTrein.Classes
             wagons = new List<Wagon>();
         }
 
+        public void AddAnimalToTrain(Animal animal)
+        {
+            try
+            {
+                AddWagonToTrain(animal);
 
-        public void AddAnimalToTrain()
+                Console.WriteLine($"{animal.Name} added to the train.");                     
+            }
+            catch (InvalidAnimalInputException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+        }
+
+        /*public void AddAnimalToTrain()
         {
             try
             {
@@ -67,7 +81,7 @@ namespace CircusTrein.Classes
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-        }
+        }*/
 
         public void AddWagonToTrain(Animal animal)
         {

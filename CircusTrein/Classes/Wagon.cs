@@ -24,7 +24,6 @@ namespace CircusTrein.Classes
         {
             try
             {
-              
                 if(!IsAnimalCompatibleWithAnimalsInWagon(animal))
                 {
                     throw new AnimalIncompatibilityException($"Animal {animal.Name} is not compatible with existing animals in wagon {Id}.");
@@ -53,7 +52,6 @@ namespace CircusTrein.Classes
                 return false;
             }
         }
-
 
         private bool IsAnimalCompatibleWithAnimalsInWagon(Animal animal)
         {
