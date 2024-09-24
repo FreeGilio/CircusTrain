@@ -20,7 +20,7 @@ namespace CircusTrein.Classes
         public void AddAnimalToTrain(Animal animal)
         {                   
                animalBuffer.Add(animal);
-               Console.WriteLine($"{animal.Name} added to buffer.");                   
+               Console.WriteLine($"{animal.Name} added to buffer list.");                   
         }
 
         public void SortAndOptimizeWagons()
@@ -62,7 +62,7 @@ namespace CircusTrein.Classes
 
                 Animal animal = new Animal(name, sizeEnum, dietEnum);
 
-                AddWagonToTrain(animal);
+                animalBuffer.Add(animal);
 
                 Console.WriteLine($"{animal.Name} added to the train.");
 
@@ -74,10 +74,12 @@ namespace CircusTrein.Classes
                 }
                 else if (confirm == "N")
                 {
+                    SortAndOptimizeWagons();
                     DisplayTrain();
                 }
                 else
                 {
+                    SortAndOptimizeWagons();
                     DisplayTrain();
                 }
             }

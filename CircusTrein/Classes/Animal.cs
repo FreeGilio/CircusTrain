@@ -21,12 +21,16 @@ namespace CircusTrein.Classes
         public AnimalSize Size => _size;
         public AnimalDiet Diet => _diet;
 
-        public Animal(string name, AnimalSize size, AnimalDiet diet) 
+        public Animal(AnimalSize size, AnimalDiet diet, string name = "") 
         {
             this.Name = name;
             _size = size;
             _diet = diet;
         }
+
+        //public Animal(AnimalSize size, AnimalDiet diet) :this("",size,diet)
+        //{  
+        //}
 
         public int GetPoints()
         {  
